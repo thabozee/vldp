@@ -1,5 +1,5 @@
 /**
- * VLDP — Vodacom Lesotho Data Provisioning Portal
+ * VLAP — Vodacom Lesotho Allocation Portal
  * Central TypeScript type definitions
  *
  * Requirements: 11.1, 2.1, 3.7, 5.5, 14.2

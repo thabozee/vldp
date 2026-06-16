@@ -98,7 +98,7 @@ export async function provisionSingle(req: ProvisioningRequest): Promise<Provisi
       bundleId,
       status: 'failed',
       errorCode: 'CONSENT_NOT_GIVEN',
-      errorMessage: 'Student has not given consent for data provisioning.',
+      errorMessage: 'Student has not given consent for allocation.',
       retryCount: 0,
       createdAt: new Date().toISOString(),
     }
@@ -321,7 +321,7 @@ export async function retryFailed(
     if (!student || !student.consentGiven) {
       existing.status = 'failed'
       existing.errorCode = 'CONSENT_NOT_GIVEN'
-      existing.errorMessage = 'Student has not given consent for data provisioning.'
+      existing.errorMessage = 'Student has not given consent for allocation.'
       results.push(existing)
       continue
     }

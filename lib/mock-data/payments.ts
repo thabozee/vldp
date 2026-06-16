@@ -1,5 +1,5 @@
 /**
- * VLDP Mock Data — Payments
+ * VLAP Mock Data — Payments
  *
  * One Payment record per Upload record (one-to-one correspondence).
  * Payment statuses mirror their upload statuses:

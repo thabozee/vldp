@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
-import { BUNDLES } from "@/lib/mock-data/bundles";
+import { BUNDLES, getSPOCAllocationBundles } from "@/lib/mock-data/bundles";
 import { INSTITUTIONS } from "@/lib/mock-data/institutions";
 import type { AuthUser, DataBundle, ValidationResult } from "@/lib/types";
 import {
@@ -82,11 +82,10 @@ export default function SpocUploadPage() {
       const tier = inst?.type ?? "tertiary";
       setInstitutionTier(tier);
 
-      const filtered = BUNDLES.filter(
-        (b) => b.active && b.targetTiers.includes(tier),
-      );
-      setAvailableBundles(filtered);
-      if (filtered.length > 0) setSelectedBundleId(filtered[0].id);
+      // Always use the 4 SPOC bulk allocation bundles
+      const spocBundles = getSPOCAllocationBundles();
+      setAvailableBundles(spocBundles);
+      if (spocBundles.length > 0) setSelectedBundleId(spocBundles[0].id);
     } catch {
       router.replace(`/${institution_id}/login`);
     }
@@ -326,7 +325,7 @@ export default function SpocUploadPage() {
                   const url = URL.createObjectURL(blob);
                   const a = document.createElement("a");
                   a.href = url;
-                  a.download = "vldp-student-upload-template.csv";
+                  a.download = "vlap-student-upload-template.csv";
                   a.click();
                   URL.revokeObjectURL(url);
                 }}
@@ -337,21 +336,59 @@ export default function SpocUploadPage() {
               </button>
             </div>
 
-            {/* Bundle selector */}
+            {/* Bundle selector — card grid */}
             <div className="space-y-1.5">
-              <Label htmlFor="bundle">Data Bundle</Label>
-              <select
-                id="bundle"
-                className="w-full border border-zinc-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-400"
-                value={selectedBundleId}
-                onChange={(e) => setSelectedBundleId(e.target.value)}
-              >
-                {availableBundles.map((b) => (
-                  <option key={b.id} value={b.id}>
-                    {b.name} — M{b.price} LSL ({b.size}, {b.validityDays} days)
-                  </option>
-                ))}
-              </select>
+              <Label>Data Allocation Bundle</Label>
+              <div className="grid grid-cols-2 gap-3">
+                {availableBundles.map((b) => {
+                  const active = selectedBundleId === b.id;
+                  return (
+                    <button
+                      key={b.id}
+                      type="button"
+                      onClick={() => setSelectedBundleId(b.id)}
+                      className="relative rounded-xl border-2 p-4 text-left transition-all focus:outline-none"
+                      style={{
+                        borderColor: active ? "#E60000" : "#E0E0E0",
+                        backgroundColor: active ? "#FFF0F0" : "#FAFAFA",
+                        boxShadow: active
+                          ? "0 0 0 3px rgba(230,0,0,0.12)"
+                          : "none",
+                      }}
+                    >
+                      {active && (
+                        <span
+                          className="absolute top-2 right-2 w-4 h-4 rounded-full flex items-center justify-center text-white text-[10px]"
+                          style={{ backgroundColor: "#E60000" }}
+                        >
+                          ✓
+                        </span>
+                      )}
+                      <p className="font-bold text-base text-zinc-900">
+                        {b.size}
+                      </p>
+                      <p
+                        className="text-xl font-black mt-0.5"
+                        style={{ color: "#E60000" }}
+                      >
+                        M{b.price}
+                      </p>
+                      <p className="text-xs text-zinc-500 mt-1">
+                        {b.validityDays} days validity
+                      </p>
+                    </button>
+                  );
+                })}
+              </div>
+              {selectedBundle && (
+                <p className="text-xs text-zinc-500 pt-1">
+                  Total cost: M{selectedBundle.price} ×{" "}
+                  {validationResult?.summary.valid ?? "?"} students
+                  {validationResult
+                    ? ` = M${(selectedBundle.price * validationResult.summary.valid).toLocaleString()}`
+                    : ""}
+                </p>
+              )}
             </div>
 
             {uploadError && (

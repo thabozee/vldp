@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * VLDP Landing Page
+ * VLAP Landing Page
  * Three-role selector with searchable institution picker.
  * Vodacom Lesotho brand: #E60000 red + white only.
  */
@@ -112,11 +112,11 @@ export default function LandingPage() {
             <p className="text-[11px] font-medium opacity-80 leading-none">
               Vodacom Lesotho
             </p>
-            <p className="text-sm font-bold leading-none mt-0.5">VLDP</p>
+            <p className="text-sm font-bold leading-none mt-0.5">VLAP</p>
           </div>
         </div>
         <span className="text-white text-xs opacity-70 hidden sm:block">
-          Data Provisioning Portal
+          Lesotho Allocation Portal
         </span>
       </header>
 
@@ -126,7 +126,7 @@ export default function LandingPage() {
         style={{ backgroundColor: V.red }}
       >
         <h1 className="text-3xl sm:text-4xl font-black tracking-tight mb-2">
-          Welcome to VLDP
+          Welcome to VLAP
         </h1>
         <p className="text-base opacity-90 max-w-lg mx-auto">
           Automated student data allocation for schools and universities across
@@ -319,7 +319,7 @@ export default function LandingPage() {
         className="w-full py-4 text-center text-xs"
         style={{ borderTop: `1px solid ${V.border}`, color: V.sub }}
       >
-        © {new Date().getFullYear()} Vodacom Lesotho · Powered by VLDP ·{" "}
+        © {new Date().getFullYear()} Vodacom Lesotho · Powered by VLAP ·{" "}
         <a href="/terms" style={{ color: V.red }}>
           Terms
         </a>{" "}

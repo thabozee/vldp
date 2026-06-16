@@ -1,5 +1,5 @@
 /**
- * VLDP Mock Data — Institutions
+ * VLAP Mock Data — Institutions
  * Eight supported educational institutions at launch.
  *
  * Requirements: 11.1, 1.1

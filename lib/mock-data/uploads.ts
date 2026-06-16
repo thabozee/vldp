@@ -1,5 +1,5 @@
 /**
- * VLDP Mock Data — Uploads
+ * VLAP Mock Data — Uploads
  *
  * Five Upload records per institution (40 total), covering all statuses.
  * Some rows intentionally contain invalid MSISDNs, duplicate MSISDNs, and

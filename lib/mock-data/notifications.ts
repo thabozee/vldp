@@ -1,5 +1,5 @@
 /**
- * VLDP Mock Data — Notifications
+ * VLAP Mock Data — Notifications
  *
  * Notification records for SPOC and Student users, covering all notification types:
  *   provisioning_complete, provisioning_partial, payment_failed,

@@ -1,5 +1,5 @@
 /**
- * VLDP Mock Data — DashboardStats
+ * VLAP Mock Data — DashboardStats
  *
  * Pre-aggregated statistics for each institution + the 'all' aggregate view,
  * across four time periods: day, week, month, year.

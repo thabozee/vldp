@@ -44,7 +44,7 @@ export default async function InstitutionPage({
           {institution.name}
         </h1>
         <p className="text-lg opacity-90 max-w-md">
-          Welcome to the {institution.shortName} Student Data Provisioning
+          Welcome to the {institution.shortName} Student Allocation
           Portal
         </p>
 
@@ -73,7 +73,7 @@ export default async function InstitutionPage({
 
       {/* ── Footer ─────────────────────────────────────────────────────── */}
       <footer className="py-6 text-center text-xs text-zinc-500 border-t">
-        Powered by VLDP | Vodacom Lesotho
+        Powered by VLAP | Vodacom Lesotho
       </footer>
     </div>
   );

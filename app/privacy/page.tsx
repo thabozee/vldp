@@ -9,7 +9,7 @@ export default function PrivacyPage() {
       >
         <h1 className="text-3xl font-bold">Privacy Policy</h1>
         <p className="text-sm opacity-80 mt-1">
-          VLDP — Vodacom Lesotho Data Provisioning Portal
+          VLAP — Vodacom Lesotho Allocation Portal
         </p>
       </header>
       <main className="max-w-2xl mx-auto px-6 py-12 space-y-8">

@@ -92,7 +92,7 @@ export default function LoginPage({ params }: LoginPageProps) {
       >
         <h1 className="text-xl font-semibold">{institution.name}</h1>
         <p className="text-sm opacity-80 mt-1">
-          Student Data Provisioning Portal
+          Student Allocation Portal
         </p>
       </header>
 
@@ -196,7 +196,7 @@ export default function LoginPage({ params }: LoginPageProps) {
 
       {/* ── Footer ─────────────────────────────────────────────────────── */}
       <footer className="py-4 text-center text-xs text-zinc-500 border-t">
-        Powered by VLDP | Vodacom Lesotho
+        Powered by VLAP | Vodacom Lesotho
       </footer>
     </div>
   );

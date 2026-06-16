@@ -1,5 +1,5 @@
 /**
- * VLDP — Vodacom Lesotho Data Provisioning Portal
+ * VLAP — Vodacom Lesotho Allocation Portal
  * Validation utilities — MSISDN validation, normalisation, and student list validation
  *
  * Requirements: 13.1–13.5, 3.3–3.7, 3.11, 16.1
@@ -13,16 +13,18 @@ import { STUDENTS } from './mock-data/students'
 // ---------------------------------------------------------------------------
 
 /**
- * Lesotho international format: +266 followed by 57/58/59 then 7 digits.
- * Total length: 13 characters.
+ * Lesotho international format: +266 followed by any 8 digits.
+ * Lesotho uses +266 country code with 8-digit subscriber numbers.
+ * Common prefixes: 50-59, 62, 63, 68, 69 etc.
+ * Total length: 12 characters (+266 + 8 digits).
  */
-const PATTERN_INTERNATIONAL = /^\+266(57|58|59)\d{7}$/
+const PATTERN_INTERNATIONAL = /^\+266\d{8}$/
 
 /**
- * Lesotho local 8-digit format: 57/58/59 followed by 7 digits.
- * Total length: 9 characters.
+ * Lesotho local 8-digit format: any 8 digits starting with 5 or 6.
+ * Accepts all Vodacom LS, Econet, and other local number prefixes.
  */
-const PATTERN_LOCAL = /^(57|58|59)\d{7}$/
+const PATTERN_LOCAL = /^[56]\d{7}$/
 
 // ---------------------------------------------------------------------------
 // Helpers

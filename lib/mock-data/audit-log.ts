@@ -1,5 +1,5 @@
 /**
- * VLDP Mock Data — AuditLog
+ * VLAP Mock Data — AuditLog
  *
  * Covers all 18 defined AuditAction types:
  *   LOGIN, LOGOUT, UPLOAD_CREATED, UPLOAD_CONFIRMED, UPLOAD_CANCELLED,

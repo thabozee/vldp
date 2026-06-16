@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "VLDP — Vodacom Lesotho Data Provisioning Portal",
+  title: "VLAP — Vodacom Lesotho Allocation Portal",
   description:
     "Multi-tenant self-service web portal for automated student data allocation for Vodacom Lesotho.",
 };

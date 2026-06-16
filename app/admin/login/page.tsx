@@ -88,7 +88,7 @@ export default function AdminLoginPage() {
             Vodacom Lesotho
           </p>
           <p className="text-sm font-bold leading-none mt-0.5">
-            VLDP — Admin Portal
+            VLAP — Admin Portal
           </p>
         </div>
       </header>
@@ -216,7 +216,7 @@ export default function AdminLoginPage() {
       </main>
 
       <footer className="py-4 text-center text-xs" style={{ color: V.sub }}>
-        © {new Date().getFullYear()} Vodacom Lesotho · VLDP
+        © {new Date().getFullYear()} Vodacom Lesotho · VLAP
       </footer>
     </div>
   );

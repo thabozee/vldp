@@ -93,7 +93,7 @@ export const translations: Record<Language, Record<string, string>> = {
 // useTranslation hook
 // ---------------------------------------------------------------------------
 
-const STORAGE_KEY = "vldp_lang"
+const STORAGE_KEY = "vlap_lang"
 
 /**
  * React hook that provides t(key) for translations and setLanguage() to switch.

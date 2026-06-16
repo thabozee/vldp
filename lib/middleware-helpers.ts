@@ -34,7 +34,7 @@ interface VldpJwtPayload extends JWTPayload {
  * Extract and verify the JWT from a Request object.
  * Checks:
  *   1. `Authorization: Bearer <token>` header
- *   2. `vldp_token` cookie
+ *   2. `vlap_token` cookie
  *
  * Returns an `AuthUser` (without a live token field — token is read-only here)
  * or `null` if the token is missing or invalid.
@@ -56,9 +56,9 @@ export async function getUserFromRequest(req: Request): Promise<AuthUser | null>
     const match = cookieHeader
       .split(';')
       .map((c) => c.trim())
-      .find((c) => c.startsWith('vldp_token='))
+      .find((c) => c.startsWith('vlap_token='))
     if (match) {
-      token = decodeURIComponent(match.slice('vldp_token='.length))
+      token = decodeURIComponent(match.slice('vlap_token='.length))
     }
   }
 

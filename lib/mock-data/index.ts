@@ -1,5 +1,5 @@
 /**
- * VLDP Mock Data Layer — barrel export
+ * VLAP Mock Data Layer — barrel export
  * Requirements: 11.1–11.10
  */
 

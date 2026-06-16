@@ -19,6 +19,7 @@ import {
   LogOut,
   Menu,
   X,
+  Users,
 } from "lucide-react";
 
 interface NavItem {
@@ -48,6 +49,11 @@ export default function SpocLayout({
       icon: LayoutDashboard,
     },
     { label: "Upload", href: `/${institution_id}/spoc/upload`, icon: Upload },
+    {
+      label: "Master List",
+      href: `/${institution_id}/spoc/master-list`,
+      icon: Users,
+    },
     {
       label: "History",
       href: `/${institution_id}/spoc/history`,

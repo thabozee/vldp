@@ -28,15 +28,9 @@ export default function StudentConsentPage() {
   useEffect(() => {
     try {
       const stored = localStorage.getItem("vldp_user");
-      if (!stored) {
-        router.replace(`/${institution_id}/login`);
-        return;
-      }
+      if (!stored) { router.replace(`/${institution_id}/login`); return; }
       const parsed = JSON.parse(stored) as AuthUser;
-      if (parsed.role !== "student") {
-        router.replace(`/${institution_id}/login`);
-        return;
-      }
+      if (parsed.role !== "student") { router.replace(`/${institution_id}/login`); return; }
       setUser(parsed);
 
       // Pre-fill from student record
@@ -57,25 +51,18 @@ export default function StudentConsentPage() {
     setLoading(true);
     setError(null);
 
-    const token = (JSON.parse(localStorage.getItem("vldp_user")!) as AuthUser)
-      .token;
+    const token = (JSON.parse(localStorage.getItem("vldp_user")!) as AuthUser).token;
 
     try {
       const [consentRes, optInRes] = await Promise.all([
         fetch("/api/students/consent", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
+          headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
           body: JSON.stringify({ studentId: user.id, consentGiven: consent }),
         }),
         fetch("/api/students/opt-in", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
+          headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
           body: JSON.stringify({ studentId: user.id, optIn }),
         }),
       ]);
@@ -99,12 +86,8 @@ export default function StudentConsentPage() {
   return (
     <div className="max-w-lg mx-auto space-y-6 py-8">
       <div>
-        <h1 className="text-xl font-semibold text-zinc-900">
-          Consent & Preferences
-        </h1>
-        <p className="text-sm text-zinc-500 mt-1">
-          Review and save your data preferences.
-        </p>
+        <h1 className="text-xl font-semibold text-zinc-900">Consent & Preferences</h1>
+        <p className="text-sm text-zinc-500 mt-1">Review and save your data preferences.</p>
       </div>
 
       <Card>
@@ -119,13 +102,9 @@ export default function StudentConsentPage() {
               disabled={loading}
             />
             <div>
-              <p className="text-sm font-medium text-zinc-800">
-                Data usage consent
-              </p>
+              <p className="text-sm font-medium text-zinc-800">Data usage consent</p>
               <p className="text-xs text-zinc-500 mt-0.5">
-                I consent to Vodacom Lesotho using my personal data for the
-                purposes of data bundle provisioning as part of the VLDP
-                programme.
+                I consent to Vodacom Lesotho using my personal data for the purposes of data bundle provisioning as part of the VLAP programme.
               </p>
             </div>
           </label>
@@ -141,17 +120,12 @@ export default function StudentConsentPage() {
                 optIn ? "bg-zinc-900" : "bg-zinc-300"
               }`}
             >
-              <span
-                className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white transition-transform ${optIn ? "translate-x-4" : "translate-x-0.5"}`}
-              />
+              <span className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white transition-transform ${optIn ? "translate-x-4" : "translate-x-0.5"}`} />
             </button>
             <div>
-              <p className="text-sm font-medium text-zinc-800">
-                Receive data allocations
-              </p>
+              <p className="text-sm font-medium text-zinc-800">Receive data allocations</p>
               <p className="text-xs text-zinc-500 mt-0.5">
-                Opt in to receive data allocations from my institution through
-                the VLDP programme.
+                Opt in to receive data allocations from my institution through the VLAP programme.
               </p>
             </div>
           </div>
@@ -169,14 +143,7 @@ export default function StudentConsentPage() {
             </div>
           ) : (
             <Button className="w-full" onClick={handleSave} disabled={loading}>
-              {loading ? (
-                <>
-                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                  Saving…
-                </>
-              ) : (
-                "Save Preferences"
-              )}
+              {loading ? <><Loader2 className="w-4 h-4 mr-2 animate-spin" />Saving…</> : "Save Preferences"}
             </Button>
           )}
         </CardContent>

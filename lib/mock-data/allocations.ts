@@ -1,5 +1,5 @@
 /**
- * VLDP Mock Data — Allocations
+ * VLAP Mock Data — Allocations
  *
  * Includes both `spoc_upload` allocations (linked to ProvisioningResults)
  * and `self_purchase` allocations (students buying bundles independently).

@@ -13,7 +13,7 @@ export function Navbar({ institutionName, rightContent }: NavbarProps) {
         {/* Logo / brand */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <span className="font-bold text-lg tracking-tight text-[var(--institution-primary,#E60000)]">
-            VLDP
+            VLAP
           </span>
           {institutionName && (
             <>

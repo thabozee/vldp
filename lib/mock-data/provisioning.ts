@@ -1,5 +1,5 @@
 /**
- * VLDP Mock Data — ProvisioningResults
+ * VLAP Mock Data — ProvisioningResults
  *
  * Covers success, failed, retrying, and pending statuses per institution.
  * Generated from the 'provisioned' (all success) and 'partial' (mix) uploads.

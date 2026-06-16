@@ -1,5 +1,5 @@
 /**
- * VLDP Mock Data — Users
+ * VLAP Mock Data — Users
  *
  * ONE global Vodacom Admin (no institution affiliation).
  * One SPOC + two Students per institution.

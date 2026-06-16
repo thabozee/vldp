@@ -1,5 +1,5 @@
 /**
- * VLDP Mock Data — DataBundles
+ * VLAP Mock Data — DataBundles
  *
  * At least three bundles per institution tier (tertiary / secondary / primary).
  * Requirements: 11.7, 9.2
@@ -10,64 +10,9 @@ import type { DataBundle } from '../types'
 const GB = (n: number) => n * 1_073_741_824
 
 export const BUNDLES: DataBundle[] = [
-  // ── Tertiary bundles ──────────────────────────────────────────────────────
-  {
-    id: 'bundle-ter-1gb',
-    name: 'Tertiary Starter 1 GB',
-    size: '1 GB',
-    sizeBytes: GB(1),
-    price: 25,
-    validityDays: 30,
-    description: 'Basic monthly bundle for tertiary students.',
-    targetTiers: ['tertiary'],
-    active: true,
-  },
-  {
-    id: 'bundle-ter-3gb',
-    name: 'Tertiary Standard 3 GB',
-    size: '3 GB',
-    sizeBytes: GB(3),
-    price: 65,
-    validityDays: 30,
-    description: 'Standard monthly bundle for tertiary students.',
-    targetTiers: ['tertiary'],
-    active: true,
-  },
-  {
-    id: 'bundle-ter-5gb',
-    name: 'Tertiary Premium 5 GB',
-    size: '5 GB',
-    sizeBytes: GB(5),
-    price: 99,
-    validityDays: 30,
-    description: 'Premium monthly bundle for tertiary students.',
-    targetTiers: ['tertiary'],
-    active: true,
-  },
-  {
-    id: 'bundle-ter-10gb',
-    name: 'Tertiary Unlimited 10 GB',
-    size: '10 GB',
-    sizeBytes: GB(10),
-    price: 179,
-    validityDays: 30,
-    description: 'Large monthly bundle for data-intensive tertiary students.',
-    targetTiers: ['tertiary'],
-    active: true,
-  },
+
 
   // ── Secondary bundles ─────────────────────────────────────────────────────
-  {
-    id: 'bundle-sec-500mb',
-    name: 'Secondary Starter 500 MB',
-    size: '500 MB',
-    sizeBytes: GB(0.5),
-    price: 15,
-    validityDays: 30,
-    description: 'Light monthly bundle for secondary school students.',
-    targetTiers: ['secondary'],
-    active: true,
-  },
   {
     id: 'bundle-sec-1gb',
     name: 'Secondary Standard 1 GB',
@@ -138,6 +83,52 @@ export const BUNDLES: DataBundle[] = [
     targetTiers: ['tertiary', 'secondary', 'primary'],
     active: true,
   },
+
+  // ── SPOC Data Allocation bundles (bulk provisioning) ─────────────────────
+  {
+    id: 'bundle-spoc-10gb',
+    name: 'Data Allocation 10 GB',
+    size: '10 GB',
+    sizeBytes: GB(10),
+    price: 50,
+    validityDays: 30,
+    description: 'Vodacom Lesotho bulk data allocation — 10 GB per student.',
+    targetTiers: ['tertiary', 'secondary', 'primary'],
+    active: true,
+  },
+  {
+    id: 'bundle-spoc-20gb',
+    name: 'Data Allocation 20 GB',
+    size: '20 GB',
+    sizeBytes: GB(20),
+    price: 80,
+    validityDays: 30,
+    description: 'Vodacom Lesotho bulk data allocation — 20 GB per student.',
+    targetTiers: ['tertiary', 'secondary', 'primary'],
+    active: true,
+  },
+  {
+    id: 'bundle-spoc-40gb',
+    name: 'Data Allocation 40 GB',
+    size: '40 GB',
+    sizeBytes: GB(40),
+    price: 130,
+    validityDays: 30,
+    description: 'Vodacom Lesotho bulk data allocation — 40 GB per student.',
+    targetTiers: ['tertiary', 'secondary', 'primary'],
+    active: true,
+  },
+  {
+    id: 'bundle-spoc-60gb',
+    name: 'Data Allocation 60 GB',
+    size: '60 GB',
+    sizeBytes: GB(60),
+    price: 199,
+    validityDays: 30,
+    description: 'Vodacom Lesotho bulk data allocation — 60 GB per student.',
+    targetTiers: ['tertiary', 'secondary', 'primary'],
+    active: true,
+  },
 ]
 
 /** Get bundles applicable to a given institution tier */
@@ -145,4 +136,9 @@ export function getBundlesForTier(
   tier: 'tertiary' | 'secondary' | 'primary'
 ): DataBundle[] {
   return BUNDLES.filter((b) => b.active && b.targetTiers.includes(tier))
+}
+
+/** Get the 4 SPOC bulk allocation bundles */
+export function getSPOCAllocationBundles(): DataBundle[] {
+  return BUNDLES.filter((b) => b.id.startsWith('bundle-spoc-') && b.active)
 }

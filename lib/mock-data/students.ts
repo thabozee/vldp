@@ -1,5 +1,5 @@
 /**
- * VLDP Mock Data — Students
+ * VLAP Mock Data — Students
  *
  * Two Student records per institution, linked to their User records.
  * Consent and optIn states intentionally varied to exercise all code paths.

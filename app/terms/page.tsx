@@ -9,7 +9,7 @@ export default function TermsPage() {
       >
         <h1 className="text-3xl font-bold">Terms and Conditions</h1>
         <p className="text-sm opacity-80 mt-1">
-          VLDP — Vodacom Lesotho Data Provisioning Portal
+          VLAP — Vodacom Lesotho Allocation Portal
         </p>
       </header>
       <main className="max-w-2xl mx-auto px-6 py-12 space-y-8">
@@ -18,13 +18,13 @@ export default function TermsPage() {
             1. Acceptance of Terms
           </h2>
           <p className="text-zinc-600 leading-relaxed">
-            By accessing the VLDP portal you agree to these terms. If you do not
+            By accessing the VLAP portal you agree to these terms. If you do not
             agree, discontinue use immediately.
           </p>
         </section>
         <section>
           <h2 className="text-lg font-semibold text-zinc-900 mb-2">
-            2. Data Provisioning
+            2. Allocation
           </h2>
           <p className="text-zinc-600 leading-relaxed">
             Vodacom Lesotho reserves the right to approve or reject data

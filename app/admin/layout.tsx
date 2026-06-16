@@ -109,7 +109,7 @@ export default function AdminLayout({
               Vodacom Admin
             </p>
             <p className="text-xs font-bold text-white leading-none mt-0.5">
-              VLDP Portal
+              VLAP Portal
             </p>
           </div>
           <button
@@ -171,7 +171,7 @@ export default function AdminLayout({
             <Menu className="w-5 h-5" />
           </button>
           <span className="text-sm font-semibold" style={{ color: V.dark }}>
-            Vodacom Admin — VLDP
+            Vodacom Admin — VLAP
           </span>
         </header>
         <main
